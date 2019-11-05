@@ -1,0 +1,236 @@
+{
+  "Products": [
+    {
+      "id": "1",
+      "Name": "Crédito Pessoal",
+      "Description": "Credito para clientes individuais",
+      "Fields": [
+        {
+          "FieldId": "Amount",
+          "FieldName": "Montante",
+          "FieldType": "Numeric",
+          "ControlType": "Range",
+          "Hidden": "false",
+          "AdvancedField": "false",
+          "Order": "2",
+          "MinValue": "50000",
+          "MaxValue": "1500000"
+        },
+        {
+          "FieldId": "Duration",
+          "FieldName": "Prazo",
+          "FieldType": "Numeric",
+          "ControlType": "Range",
+          "Hidden": "false",
+          "AdvancedField": "false",
+          "Order": "3",
+          "MinValue": "6",
+          "MaxValue": "60"
+        },
+        {
+          "FieldId": "IncomeGreaterThan",
+          "FieldName": "Rendimento Superior a 30,000.00MT",
+          "FieldType": "Option",
+          "ControlType": "Switch",
+          "Hidden": "false",
+          "AdvancedField": "false",
+          "Order": "1"
+        },
+        {
+          "FieldId": "IncludeInsurance",
+          "FieldName": "Pretende Incluir o Financiamento do Seguro?",
+          "FieldType": "Option",
+          "ControlType": "Switch",
+          "Hidden": "false",
+          "AdvancedField": "false",
+          "Order": "4"
+        }
+      ],
+      "Summary": {
+        "Amount": "Amount",
+        "Duration": "Duration",
+        "MonthlyPayment": "ValueOfLeasing*(1+taxa)/Duration"
+      }
+    },
+    {
+      "Id": "2",
+      "Name": "Leasing Mobiliário",
+      "Description": "para .....",
+      "Fields": [
+        {
+          "FieldId": "StateOfAsset",
+          "FieldName": "Estado do Bem",
+          "FieldType": "Options",
+          "ControlType": "Segment",
+          "HiddenField": "false",
+          "AdvancedField": "false",
+          "Order": "2",
+          "Options": [
+            {
+              "Value": "Novo",
+              "Constraint": [
+                {
+                  "TargetField": "AgeOfAsset",
+                  "Action": "Hide"
+                },
+                {
+                  "TargetField": "Duration",
+                  "Action": "setMax",
+                  "ValueType": "Static",
+                  "Value": "84"
+                }
+              ]
+            },
+            {
+              "Value": "Usado",
+              "Constraint": [
+                {
+                  "TargetField": "AgeOfAsset",
+                  "Action": "Show"
+                },
+                {
+                  "TargetField": "Duration",
+                  "Action": "setMax",
+                  "ValueType": "Static",
+                  "Value": "60"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "FieldId": "AgeOfAsset",
+          "FieldName": "Idade do Bem",
+          "FieldType": "Options",
+          "ConstrolType": "Segment",
+          "HiddenField": "true",
+          "AdvancedField": "false",
+          "Order": "3",
+          "Options": [
+            {
+              "Value": "1-5",
+              "Constraint": [
+                {
+                  "TargetField": "Duration",
+                  "Action": "setMax",
+                  "ValueType": "Static",
+                  "Value": "60"
+                }
+              ]
+            },
+            {
+              "Value": "6",
+              "Constraint": [
+                {
+                  "TargetField": "Duration",
+                  "Action": "setMax",
+                  "ValueType": "Static",
+                  "Value": "48"
+                }
+              ]
+            },
+            {
+              "Value": "7",
+              "Constraint": [
+                {
+                  "TargetField": "Duration",
+                  "Action": "setMax",
+                  "ValueType": "Static",
+                  "Value": "36"
+                }
+              ]
+            },
+            {
+              "Value": "8",
+              "Constraint": [
+                {
+                  "TargetField": "Duration",
+                  "Action": "setMax",
+                  "ValueType": "Static",
+                  "Value": "24"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "FieldId": "ValueOfAsset",
+          "FieldName": "Valor do Bem",
+          "FieldType": "Numeric",
+          "ControlType": "Range",
+          "HiddenField": "false",
+          "AdvancedField": "false",
+          "Order": "4",
+          "MinValue": "300000",
+          "MaxValue": "10000000",
+          "Constraint": [
+            {
+              "TargetField": "ValueOfLeasing",
+              "Action": "setMax",
+              "ValueType": "Expression",
+              "Value": "CurrentValue*0.9"
+            }
+          ]
+        },
+        {
+          "FieldId": "ValueOfLeasing",
+          "FieldName": "Valor de Leasing",
+          "FieldType": "Numeric",
+          "ControlType": "Range",
+          "Type": "Numeric",
+          "Hidden": "false",
+          "AdvancedField": "false",
+          "Order": "5",
+          "MinValue": "300000",
+          "MaxValue": "1500000"
+        },
+        {
+          "FieldId": "EntryValue",
+          "FieldName": "Valor de Entrada",
+          "Type": "Generated",
+          "ControlType": "TextView",
+          "Formula": "ValueOfAsset-ValueOfLeasing",
+          "Hidden": "false",
+          "AdvancedField": "false",
+          "Order": "6"
+        },
+        {
+          "FieldId": "Duration",
+          "FieldName": "Prazo",
+          "ControlType": "Range",
+          "Type": "Numeric",
+          "Hidden": "false",
+          "AdvancedField": "false",
+          "Order": "7",
+          "MinValue": "18",
+          "MaxValue": "84"
+        },
+        {
+          "FieldId": "ResidualValue",
+          "FieldName": "Valor Residual",
+          "ControlType": "Range",
+          "Type": "Numeric",
+          "Hidden": "false",
+          "AdvancedField": "true",
+          "Order": "8",
+          "MinValue": "2",
+          "MaxValue": "10"
+        },
+        {
+          "FieldId": "IncomeGreaterThan",
+          "FieldName": "Rendimento Superior a 30,000.00MT",
+          "FieldType": "Option",
+          "ControlType": "Switch",
+          "Hidden": "false",
+          "AdvancedField": "false",
+          "Order": "1"
+        }
+      ],
+      "Summary": {
+        "Amount": "ValueOfLeasing",
+        "Duration": "Duration",
+        "MonthlyPayment": "ValueOfLeasing*(1+taxa)/Duration"
+      }
+    }
+  ]
+}
