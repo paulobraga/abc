@@ -13,7 +13,6 @@
           "Hidden": "false",
           "AdvancedField": "false",
           "Order": "2",
-          "Unit": "Currency",
           "MinValue": "50000",
           "MaxValue": "1500000"
         },
@@ -25,7 +24,6 @@
           "Hidden": "false",
           "AdvancedField": "false",
           "Order": "3",
-          "Unit": "Time",
           "MinValue": "6",
           "MaxValue": "60"
         },
@@ -64,7 +62,7 @@
           "FieldName": "Estado do Bem",
           "FieldType": "Options",
           "ControlType": "Segment",
-          "HiddenField": "false",
+          "Hidden": "false",
           "AdvancedField": "false",
           "Order": "2",
           "Options": [
@@ -102,10 +100,10 @@
         },
         {
           "FieldId": "AgeOfAsset",
-          "FieldName": "Idade do Bem (Anos)",
+          "FieldName": "Idade do Bem",
           "FieldType": "Options",
           "ConstrolType": "Segment",
-          "HiddenField": "true",
+          "Hidden": "true",
           "AdvancedField": "false",
           "Order": "3",
           "Options": [
@@ -160,10 +158,9 @@
           "FieldName": "Valor do Bem",
           "FieldType": "Numeric",
           "ControlType": "Range",
-          "HiddenField": "false",
+          "Hidden": "false",
           "AdvancedField": "false",
           "Order": "4",
-          "Unit": "Currency",
           "MinValue": "300000",
           "MaxValue": "10000000",
           "Constraint": [
@@ -184,7 +181,6 @@
           "Hidden": "false",
           "AdvancedField": "false",
           "Order": "5",
-          "Unit": "Currency",
           "MinValue": "300000",
           "MaxValue": "1500000"
         },
@@ -206,7 +202,6 @@
           "Hidden": "false",
           "AdvancedField": "false",
           "Order": "7",
-          "Unit": "Time",
           "MinValue": "18",
           "MaxValue": "84"
         },
@@ -218,7 +213,6 @@
           "Hidden": "false",
           "AdvancedField": "true",
           "Order": "8",
-          "Unit": "Percentage",
           "MinValue": "2",
           "MaxValue": "10"
         },
